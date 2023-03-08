@@ -1,6 +1,6 @@
 <h1 align="center">Welcome to Mern Basics 👋</h1>
 <p>
-  <a href="https://twitter.com/\_gyaan\_" target="_blank">
+  <a href="https://twitter.com/_gyaan_" target="_blank">
     <img alt="Twitter: \_gyaan\_" src="https://img.shields.io/twitter/follow/\_gyaan\_.svg?style=social" />
   </a>
 </p>
