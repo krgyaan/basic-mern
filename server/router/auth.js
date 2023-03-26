@@ -33,7 +33,7 @@ router.post('/register', (req, res) => {
 });
 */
 // Using Async/Await
-router.post('/register', async (req, res) => {
+router.post('/signup', async (req, res) => {
     const { name, email, phone, work, password, cpassword, date } = req.body;
     if (!name || !email || !phone || !work || !password || !cpassword || !date) {
         return res.status(422).json({ error: "Please fill all the fields" });

@@ -33,12 +33,12 @@ app.get('/contact', (req, res) => {
 app.get('/login', (req, res) => {
     res.send('LogIn Page')
 });
-app.get('/register', (req, res) => {
+app.get('/signup', (req, res) => {
     res.send('Registeration Page')
 });
 
 // Server
 app.listen(port, () => {
-    console.log(`App listening on port http://localhost:${port}`)
+    console.log(`SERVER App listening on port http://localhost:${port}`)
 });
 
