@@ -20,7 +20,7 @@ app.use(express.json());
 app.use(cookieParser());
 
 app.use(require('./router/auth'));
-
+/*
 app.get('/', (req, res) => {
     res.send('Hello from the other side aap.js!')
 });
@@ -36,6 +36,7 @@ app.get('/login', (req, res) => {
 app.get('/signup', (req, res) => {
     res.send('Registeration Page')
 });
+*/
 
 // Server
 app.listen(port, () => {

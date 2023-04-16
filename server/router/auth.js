@@ -3,12 +3,14 @@ const jwt = require('jsonwebtoken');
 const User = require('../models/userSchema');
 const bcrypt = require('bcryptjs');
 const router = express.Router();
+const Authenticate = require('../middleware/Authenticate');
 
 require('../db/config.js');
 
 router.get('/', (req, res) => {
     res.send('Hello from the other side auth.js!')
 });
+
 
 /*
 // Using Promises
@@ -35,13 +37,13 @@ router.post('/register', (req, res) => {
 // Using Async/Await
 router.post('/signup', async (req, res) => {
     const { name, email, phone, work, password, cpassword, date } = req.body;
-    if (!name || !email || !phone || !work || !password || !cpassword || !date) {
+    if (!name || !email || !phone || !work || !password || !cpassword) {
         return res.status(422).json({ error: "Please fill all the fields" });
     }
     try {
         const userExist = await User.findOne({ email: email });
 
-        const user = new User({ name, email, phone, work, password, cpassword, date });
+        const user = new User({ name, email, phone, work, password, cpassword });
 
         if (userExist) {
             return res.status(422).json({ error: "Email already exists" });
@@ -81,6 +83,16 @@ router.post('/signin', async (req, res) => {
     } catch (error) {
         console.log(error);
     }    
+});
+router.get('/about', Authenticate, (req, res) => {
+    res.send('Hello from the about.js!')
+});
+router.get('/contact', Authenticate, (req, res) => {
+    res.send('Hello from the contact.js!')
+});
+router.get('/logout', (req, res) => {
+    res.clearCookie('JWTtoken', { path: '/' });
+    res.status(200).send('User logged out');
 });
 
 module.exports = router;
